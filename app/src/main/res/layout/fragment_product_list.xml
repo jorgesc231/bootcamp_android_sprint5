@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.ProductListFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/app_name">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginHorizontal="16dp"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                app:iconifiedByDefault="true"
+                app:queryHint="Busqueda"/>
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <TextView
+            android:id="@+id/tvListTitle"
+            app:layout_constraintTop_toBottomOf="@id/Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/list_title"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="8dp"
+            android:textSize="24sp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProducts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            android:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/tvEmptyList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="No Hay productos por ahora"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvSearchError"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            tools:text="No se encontraron elementos"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btCart"
+        android:layout_gravity="bottom|end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:icon="@drawable/ic_cart"
+        android:textStyle="bold" />
+
+</FrameLayout>

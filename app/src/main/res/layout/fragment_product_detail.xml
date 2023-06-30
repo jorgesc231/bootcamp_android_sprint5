@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ProductDetailFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <ImageView
+        android:id="@+id/ivImage"
+        app:layout_constraintTop_toBottomOf="@id/Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_gravity="top"
+        android:scaleType="centerCrop"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+            <ImageView
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:scaleType="fitCenter"
+                android:layout_height="400dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/ivImage"
+                app:layout_constraintBottom_toTopOf="@id/cvPrice"
+                android:layout_marginBottom="-16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="Nombre del Producto"
+                        android:textSize="24sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="Descripcion del Producto" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/size" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:singleLine="true"
+                            app:singleSelection="true"
+                            app:selectionRequired="true"
+                            android:layout_marginHorizontal="10dp">
+
+                            <com.google.android.material.chip.Chip
+                                style="@style/Widget.Material3.Chip.Filter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="39"/>
+
+                            <com.google.android.material.chip.Chip
+                                style="@style/Widget.Material3.Chip.Filter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="40"/>
+
+                            <com.google.android.material.chip.Chip
+                                style="@style/Widget.Material3.Chip.Filter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="41"/>
+
+                            <com.google.android.material.chip.Chip
+                                style="@style/Widget.Material3.Chip.Filter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="42"/>
+
+                            <com.google.android.material.chip.Chip
+                                style="@style/Widget.Material3.Chip.Filter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="43"/>
+
+                        </com.google.android.material.chip.ChipGroup>
+
+                    </HorizontalScrollView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:text="Color:" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioGroup
+                            android:id="@+id/radioGroup"
+                            android:checkedButton="@+id/radio_button_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <RadioButton
+                                android:id="@+id/radio_button_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:buttonTint="@color/black"/>
+                            <RadioButton
+                                android:id="@+id/radio_button_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:buttonTint="@color/red"/>
+                            <RadioButton
+                                android:id="@+id/radio_button_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:buttonTint="@color/green"/>
+                            <RadioButton
+                                android:id="@+id/radio_button_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:buttonTint="@color/blue"/>
+                        </RadioGroup>
+
+                    </HorizontalScrollView>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="-8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:text="Precio" />
+
+            <Button
+                style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                android:id="@+id/btAddtoCart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_to_cart"
+                app:icon="@drawable/ic_cart"
+                />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
